@@ -4,7 +4,9 @@ A browser-only ERP learning environment for university students. It opens withou
 
 ## What is in the app
 
-The simulator includes a demo company, company switching and local backup/reset; a dashboard; a chart of accounts, journals, ledger and trial balance; purchase orders, goods receipt, supplier invoices and payments; customer invoices and receipts; inventory movements and adjustments; fictional HR/attendance and payroll simulation; reports; training scenarios; an audit trail; and client-side CSV/JSON/XLSX/PDF review and data import. Training exercises use the same company records and posting logic as the modules.
+The simulator includes a demo company, company switching and local backup/reset; a dashboard; a chart of accounts, journals, ledger and trial balance; purchase orders, goods receipt, supplier invoices and payments; customer invoices and receipts; inventory movements and adjustments; fictional HR/attendance and payroll simulation; reports; an audit trail; and client-side CSV/JSON/XLSX/PDF review and data import.
+
+Training Mode provides 12 guided scenarios covering journals, AP, AR, purchase order receipt, supplier invoice matching, inventory adjustments, expenses, financial statements, report review, Record to Report, end-to-end Procure to Pay, and payroll. Starting a scenario snapshots the current company as its baseline, so preloaded demo records do not count as student work. Students complete actions in the normal ERP modules; the evaluator checks the shared business records, gives step-level hints and explanations, and saves answers, best scores and completion status in browser-local storage. Training does not gate access to any module.
 
 Financial document posting is educational only. Posted records are locked against silent edits/cancellation; corrections use explicit reversal logic for journals. The underlying records are stored in browser local storage. They do not sync between devices or browsers and may be erased by clearing site data. Export a JSON backup to preserve local training companies.
 

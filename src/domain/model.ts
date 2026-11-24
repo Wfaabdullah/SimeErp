@@ -13,7 +13,28 @@ export interface Employee { id: string; name: string; department: string; role: 
 export interface Attendance { id: string; employeeId: string; date: string; status: 'Present' | 'Absent' | 'Leave'; }
 export interface PayrollRun { id: string; month: string; gross: number; status: DocStatus; employeeCount: number; journalId?: string; }
 export interface AuditEvent { id: string; at: string; operation: string; documentId: string; documentType: string; previousStatus?: DocStatus | 'New'; newStatus?: DocStatus; journalIds: string[]; note?: string; }
-export interface TrainingProgress { completed: string[]; }
+export interface TrainingBaseline {
+  companyId: string;
+  journalIds: string[];
+  purchaseOrderIds: string[];
+  supplierInvoiceIds: string[];
+  salesInvoiceIds: string[];
+  expenseIds: string[];
+  payrollRunIds: string[];
+  stockMovementIds: string[];
+  productQuantities: Record<string, number>;
+  supplierInvoices: Record<string, { amount: number; paidAmount: number; status: DocStatus }>;
+  reportViews: string[];
+  employeeCount: number;
+  payrollGross: number;
+}
+export interface TrainingProgress {
+  completed: string[];
+  baselines?: Record<string, TrainingBaseline>;
+  bestScores?: Record<string, number>;
+  reportViews?: string[];
+  answers?: Record<string, Record<string, string>>;
+}
 export interface CompanyData {
   company: { id: string; name: string; currency: string; fiscalYearStart: string; createdAt: string };
   accounts: Account[]; journals: Journal[]; suppliers: Party[]; customers: Party[]; products: Product[];

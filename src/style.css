@@ -3,3 +3,34 @@
 @media(max-width:1100px){.metrics-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.content{padding:18px 22px 38px}.topbar{padding:14px 22px}}
 @media(max-width:780px){.sidebar{transform:translateX(-102%);transition:transform .2s;width:280px}.sidebar.show{transform:translateX(0)}.main-area{margin-left:0;width:100%}.menu-btn{display:grid}.mobile-close{display:grid!important}.backdrop{display:none;position:fixed;inset:0;z-index:35;background:#12132288}.backdrop.visible{display:block}.topbar{padding:12px 14px;align-items:flex-start}.heading h1{font-size:15px}.heading p{font-size:9px}.top-actions{gap:6px}.search-box{display:none}.top-actions .btn{font-size:9px;padding:0 9px}.content{padding:14px 14px 32px}.dashboard-grid,.two-panels,.scenario-grid,.import-layout{grid-template-columns:1fr}.welcome-banner{flex-direction:column;gap:5px}.metrics-grid{gap:8px}.metric{padding:12px;min-height:100px}.metric strong{font-size:17px}.welcome-row{align-items:flex-start;flex-direction:column}.section-title{align-items:flex-start;flex-direction:column}.section-title h2{font-size:17px}.panel{padding:14px}.filters{flex-wrap:wrap}.filters label{flex:1;min-width:115px}.process-strip{overflow:auto;white-space:nowrap}.journal-line{grid-template-columns:1fr 85px 85px}}
 @media(max-width:420px){.metrics-grid{grid-template-columns:1fr 1fr}.metric-head{font-size:9px}.metric strong{font-size:15px}.metric small{font-size:8px}.topbar{gap:6px}.top-actions .btn{width:35px;overflow:hidden;gap:18px;padding:0 9px}.scenario-actions .btn{font-size:9px}.form-foot{align-items:flex-start;flex-direction:column}}
+
+/* Guided training scenarios */
+.training-scenarios{align-items:start;grid-template-columns:repeat(auto-fit,minmax(min(100%,390px),1fr));}
+.training-scenario{display:flex;flex-direction:column;gap:12px;min-width:0;}
+.training-scenario h3{margin:0;font-size:17px;}
+.training-scenario>p{margin:0;color:var(--muted,#687386);line-height:1.55;}
+.training-meta{display:flex;align-items:center;gap:9px;flex-wrap:wrap;color:var(--muted,#687386);font-size:11px;}
+.training-meta span{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line,#e4e8ef);border-radius:999px;padding:4px 8px;}
+.learning-goals{display:grid;gap:5px;padding:10px 12px;border-radius:10px;background:var(--surface-soft,#f6f8fb);font-size:12px;}
+.learning-goals span{color:var(--muted,#687386);line-height:1.5;}
+.training-instructions{padding:10px 12px;border:1px solid var(--line,#e4e8ef);border-radius:10px;font-size:12px;}
+.training-instructions summary{cursor:pointer;font-weight:650;}
+.training-instructions ol{padding-left:19px;line-height:1.7;color:var(--muted,#687386);}
+.training-instructions p{margin:8px 0 0;color:var(--muted,#687386);line-height:1.55;}
+.training-step-list{display:grid;gap:8px;}
+.training-step{padding:10px 11px;border:1px solid var(--line,#e4e8ef);border-radius:10px;background:#fff;}
+.training-step.is-passed{border-color:#a8dfc1;background:#f3fbf6;color:#176b3a;}
+.training-step-title{display:flex;align-items:flex-start;gap:8px;font-size:12px;line-height:1.45;}
+.training-step-title svg{flex:none;margin-top:1px;}
+.training-answer{display:grid;gap:5px;margin:10px 0 0;font-size:11px;font-weight:600;}
+.training-answer input{width:100%;min-height:36px;border:1px solid var(--line,#d8dee8);border-radius:7px;padding:7px 9px;font:inherit;}
+.training-feedback,.training-mistake{margin:7px 0 0 22px;font-size:11px;line-height:1.5;}
+.training-feedback{color:#8a5a00;}
+.training-mistake{color:#596579;}
+.training-success{display:flex;gap:7px;align-items:flex-start;padding:10px 12px;border-radius:9px;background:#f0fbf4;color:#176b3a;font-size:12px;line-height:1.5;}
+.training-success svg{flex:none;margin-top:1px;}
+.training-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:5px;}
+.training-actions .btn{flex:1 1 auto;min-height:36px;}
+.training-actions .btn:disabled{opacity:.5;cursor:not-allowed;}
+.training-baseline-note{display:flex;align-items:center;gap:6px;margin:0;color:var(--muted,#687386);font-size:11px;}
+@media(max-width:600px){.training-scenarios{grid-template-columns:1fr;}.training-actions .btn{width:100%;}}

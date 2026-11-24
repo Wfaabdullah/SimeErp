@@ -131,6 +131,15 @@ export function recordExpense(c:CompanyData,category:string,amount:number,descri
   let n=postJournal(c,description,[{accountId:ACCOUNT.EXPENSE,debit:amount,credit:0},{accountId:ACCOUNT.CASH,debit:0,credit:amount}],`expense:${id}`);
   const record={id,date:today(),category,amount,description,status:'Posted' as DocStatus,journalId:n.journals.at(-1)!.id};n={...n,expenses:[record,...n.expenses]};return {...n,audit:[audit('Expense posted',id,'Expense','Approved','Posted',[record.journalId]),...n.audit]};
 }
+export function adjustInventory(c:CompanyData,productId:string,delta:number):CompanyData {
+  const product=c.products.find(x=>x.id===productId);if(!product) throw new Error('Choose a valid product.');
+  if(!Number.isInteger(delta)||delta===0||product.qty+delta<0) throw new Error('Adjustment must be a nonzero whole amount and cannot make stock negative.');
+  const movementId=makeId('SM'),value=Math.abs(delta)*product.unitCost;
+  let n:CompanyData={...c,products:c.products.map(x=>x.id===productId?{...x,qty:x.qty+delta}:x),stockMovements:[{id:movementId,productId,qty:delta,kind:'Adjustment',reference:'Manual training adjustment',date:today()},...c.stockMovements]};
+  n=postJournal(n,'Inventory adjustment',delta>0?[{accountId:ACCOUNT.INVENTORY,debit:value,credit:0},{accountId:ACCOUNT.EQUITY,debit:0,credit:value}]:[{accountId:ACCOUNT.EXPENSE,debit:value,credit:0},{accountId:ACCOUNT.INVENTORY,debit:0,credit:value}],`stock-adjust:${movementId}`);
+  const journalId=n.journals.at(-1)!.id;
+  return {...n,audit:[audit('Inventory adjustment posted',movementId,'Stock Adjustment','New','Posted',[journalId],`${delta} units of ${product.name}.`),...n.audit]};
+}
 export function runPayroll(c:CompanyData,month:string):CompanyData {
   if(c.payrollRuns.some(x=>x.month===month&&x.status==='Posted')) throw new Error('Payroll has already been posted for that month.');const active=c.employees.filter(x=>x.active),gross=active.reduce((s,e)=>s+e.salary,0),id=makeId('PAY');
   let n=postJournal(c,`Payroll simulation ${month}`,[{accountId:ACCOUNT.PAYROLL,debit:gross,credit:0},{accountId:ACCOUNT.CASH,debit:0,credit:gross}],`payroll:${month}`);

@@ -70,19 +70,19 @@
 - [ ] Do not present a filename-only upload interface as functional.
 
 ## 12. Training mode and ERP learning assistance
-- [ ] Provide dedicated Training Mode with scenario descriptions, instructions, required actions, actual interactive tasks, validation, success/error feedback, explanations and completion status.
-- [ ] Include exercises for journal entries, expenses, supplier invoices, purchase orders, receiving inventory, customer invoices, AR/payment, financial statements and reports.
-- [ ] Include complete learning cycles for Procure to Pay, Order to Cash, Record to Report, Inventory Management and Payroll Simulation.
-- [ ] Run training tasks through the same ERP data and business logic as ordinary module screens, not a separate fake simulation.
-- [ ] Provide concise contextual explanations of ERP terminology, accounting concepts and operation purposes inside modules without overwhelming the interface.
-- [ ] Let students explore modules independently; exercises must not gate access.
+- [x] Provide dedicated Training Mode with scenario descriptions, instructions, required actions, actual interactive tasks, validation, success/error feedback, explanations and completion status.
+- [x] Include exercises for journal entries, expenses, supplier invoices, purchase orders, receiving inventory, customer invoices, AR/payment, financial statements and reports.
+- [x] Include complete learning cycles for Procure to Pay, Order to Cash, Record to Report, Inventory Management and Payroll Simulation.
+- [x] Run training tasks through the same ERP data and business logic as ordinary module screens, not a separate fake simulation.
+- [x] Provide concise contextual explanations of ERP terminology, accounting concepts and operation purposes inside modules without overwhelming the interface.
+- [x] Let students explore modules independently; exercises must not gate access.
 
 ## 13. Testing and acceptance evidence
 - [ ] Test CSV, JSON, Excel and PDF preview/extraction paths, invalid formats, missing data, duplicates and incorrect field mappings.
 - [ ] Test balanced and unbalanced journals, posting, ledger updates, trial balance and financial statement calculations.
-- [ ] Test procure-to-pay: order creation, goods receipt, stock update, supplier invoice and AP update.
-- [ ] Test order-to-cash: customer invoice, payment, AR and revenue updates.
-- [ ] Test record-to-report, inventory management and payroll simulation with actual test data.
+- [x] Test procure-to-pay: order creation, goods receipt, stock update, supplier invoice and AP update.
+- [x] Test order-to-cash: customer invoice, payment, AR and revenue updates.
+- [x] Test record-to-report, inventory management and payroll simulation with actual test data.
 - [ ] Test create/edit/delete, posted-document correction/cancellation, refresh/persistence, company separation, demo reset, backup export/import and duplicate prevention.
 - [ ] Test production build, GitHub Pages base path, assets, navigation, direct refresh and browser-visible console errors; fix discovered defects.
 - [ ] Do not claim tests passed unless actually run; document unimplemented features as unavailable rather than suggesting they work.
